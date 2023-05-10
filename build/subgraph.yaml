@@ -1,6 +1,6 @@
 specVersion: 0.0.5
 schema:
-  file: ./schema.graphql
+  file: schema.graphql
 dataSources:
   - kind: ethereum
     name: NftMarketplace
@@ -23,7 +23,7 @@ dataSources:
         - OwnershipTransferred
       abis:
         - name: NftMarketplace
-          file: ./abis/NftMarketplace.json
+          file: NftMarketplace/abis/NftMarketplace.json
       eventHandlers:
         - event: NftListed(uint256,address,uint256,address)
           handler: handleNftListed
@@ -39,7 +39,7 @@ dataSources:
           handler: handleNftSold
         - event: OwnershipTransferred(indexed address,indexed address)
           handler: handleOwnershipTransferred
-      file: ./src/nft-marketplace.ts
+      file: NftMarketplace/NftMarketplace.wasm
   - kind: ethereum
     name: NftCatAttributes
     network: sepolia
@@ -57,7 +57,7 @@ dataSources:
         - NftCatAttributesOwnershipTransferred
       abis:
         - name: NftCatAttributes
-          file: ./abis/NftCatAttributes.json
+          file: NftCatAttributes/abis/NftCatAttributes.json
       eventHandlers:
         - event: NftCatAttributesCreated(uint256,address,uint8,uint8,uint256,uint256)
           handler: handleNftCatAttributesCreated
@@ -65,4 +65,4 @@ dataSources:
           handler: handleNftCatAttributesRequested
         - event: OwnershipTransferred(indexed address,indexed address)
           handler: handleOwnershipTransferred
-      file: ./src/nft-cat-attributes.ts
+      file: NftCatAttributes/NftCatAttributes.wasm

@@ -3,6 +3,9 @@
     "NftMarketplace": {
       "address": "0xD2f35679e5b532F6B0dd9D45ba6d4598fE51861F",
       "startBlock": 0
+    },
+    "NftCatAttributes": {
+      "address": "0x3b406cd40B07968bC0c5Ab6e886B672c9c2c0188"
     }
   }
 }

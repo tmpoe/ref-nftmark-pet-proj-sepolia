@@ -59,6 +59,12 @@
         "internalType": "uint256",
         "name": "cuteness",
         "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "enum NftCatAttributes.Rarity",
+        "name": "rarity",
+        "type": "uint8"
       }
     ],
     "name": "NftCatAttributesCreated",

@@ -12,7 +12,8 @@ export function createNftCatAttributesCreatedEvent(
   breed: i32,
   eyecolor: i32,
   playfulness: BigInt,
-  cuteness: BigInt
+  cuteness: BigInt,
+  rarity: i32
 ): NftCatAttributesCreated {
   let nftCatAttributesCreatedEvent = changetype<NftCatAttributesCreated>(
     newMockEvent()
@@ -51,6 +52,12 @@ export function createNftCatAttributesCreatedEvent(
     new ethereum.EventParam(
       "cuteness",
       ethereum.Value.fromUnsignedBigInt(cuteness)
+    )
+  )
+  nftCatAttributesCreatedEvent.parameters.push(
+    new ethereum.EventParam(
+      "rarity",
+      ethereum.Value.fromUnsignedBigInt(BigInt.fromI32(rarity))
     )
   )
 

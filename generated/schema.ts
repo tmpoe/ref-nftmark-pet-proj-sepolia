@@ -1145,6 +1145,19 @@ export class NftCatAttributesCreated extends Entity {
     this.set("cuteness", Value.fromBigInt(value));
   }
 
+  get rarity(): i32 {
+    let value = this.get("rarity");
+    if (!value || value.kind == ValueKind.NULL) {
+      return 0;
+    } else {
+      return value.toI32();
+    }
+  }
+
+  set rarity(value: i32) {
+    this.set("rarity", Value.fromI32(value));
+  }
+
   get blockNumber(): BigInt {
     let value = this.get("blockNumber");
     if (!value || value.kind == ValueKind.NULL) {

@@ -25,13 +25,15 @@ describe("Describe entity assertions", () => {
     let eyecolor = 123
     let playfulness = BigInt.fromI32(234)
     let cuteness = BigInt.fromI32(234)
+    let rarity = 123
     let newNftCatAttributesCreatedEvent = createNftCatAttributesCreatedEvent(
       requestId,
       requester,
       breed,
       eyecolor,
       playfulness,
-      cuteness
+      cuteness,
+      rarity
     )
     handleNftCatAttributesCreated(newNftCatAttributesCreatedEvent)
   })
@@ -82,6 +84,12 @@ describe("Describe entity assertions", () => {
       "0xa16081f360e3847006db660bae1c6d1b2e17ec2a-1",
       "cuteness",
       "234"
+    )
+    assert.fieldEquals(
+      "NftCatAttributesCreated",
+      "0xa16081f360e3847006db660bae1c6d1b2e17ec2a-1",
+      "rarity",
+      "123"
     )
 
     // More assert options:

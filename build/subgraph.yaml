@@ -6,7 +6,7 @@ dataSources:
     name: NftMarketplace
     network: sepolia
     source:
-      address: "0xBF8C54331b7A2f7EBd738b90f83824047e2D5D4c"
+      address: "0x22365c252Bb294B2C3fBA2eCfc3b0B80D89850A0"
       abi: NftMarketplace
       startBlock: 0
     mapping:
@@ -44,9 +44,9 @@ dataSources:
     name: NftCatAttributes
     network: sepolia
     source:
-      address: "0x3b406cd40B07968bC0c5Ab6e886B672c9c2c0188"
+      address: "0xe033cD29d7c9650251FE3B8060A02B9c673FB515"
       abi: NftCatAttributes
-      startBlock: 3458026
+      startBlock: 3615282
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -59,7 +59,7 @@ dataSources:
         - name: NftCatAttributes
           file: NftCatAttributes/abis/NftCatAttributes.json
       eventHandlers:
-        - event: NftCatAttributesCreated(uint256,address,uint8,uint8,uint256,uint256)
+        - event: NftCatAttributesCreated(uint256,address,uint8,uint8,uint256,uint256,uint8)
           handler: handleNftCatAttributesCreated
         - event: NftCatAttributesRequested(uint256,address)
           handler: handleNftCatAttributesRequested

@@ -197,6 +197,21 @@ export class NftMarketplace extends ethereum.SmartContract {
     return new NftMarketplace("NftMarketplace", address);
   }
 
+  getBalance(): BigInt {
+    let result = super.call("getBalance", "getBalance():(uint256)", []);
+
+    return result[0].toBigInt();
+  }
+
+  try_getBalance(): ethereum.CallResult<BigInt> {
+    let result = super.tryCall("getBalance", "getBalance():(uint256)", []);
+    if (result.reverted) {
+      return new ethereum.CallResult();
+    }
+    let value = result.value;
+    return ethereum.CallResult.fromValue(value[0].toBigInt());
+  }
+
   getMintingFee(): BigInt {
     let result = super.call("getMintingFee", "getMintingFee():(uint256)", []);
 
@@ -477,6 +492,66 @@ export class RenounceOwnershipCall__Outputs {
   _call: RenounceOwnershipCall;
 
   constructor(call: RenounceOwnershipCall) {
+    this._call = call;
+  }
+}
+
+export class SetMintingFeeCall extends ethereum.Call {
+  get inputs(): SetMintingFeeCall__Inputs {
+    return new SetMintingFeeCall__Inputs(this);
+  }
+
+  get outputs(): SetMintingFeeCall__Outputs {
+    return new SetMintingFeeCall__Outputs(this);
+  }
+}
+
+export class SetMintingFeeCall__Inputs {
+  _call: SetMintingFeeCall;
+
+  constructor(call: SetMintingFeeCall) {
+    this._call = call;
+  }
+
+  get newMintingFee(): BigInt {
+    return this._call.inputValues[0].value.toBigInt();
+  }
+}
+
+export class SetMintingFeeCall__Outputs {
+  _call: SetMintingFeeCall;
+
+  constructor(call: SetMintingFeeCall) {
+    this._call = call;
+  }
+}
+
+export class TapTreasuryCall extends ethereum.Call {
+  get inputs(): TapTreasuryCall__Inputs {
+    return new TapTreasuryCall__Inputs(this);
+  }
+
+  get outputs(): TapTreasuryCall__Outputs {
+    return new TapTreasuryCall__Outputs(this);
+  }
+}
+
+export class TapTreasuryCall__Inputs {
+  _call: TapTreasuryCall;
+
+  constructor(call: TapTreasuryCall) {
+    this._call = call;
+  }
+
+  get tapAmount(): BigInt {
+    return this._call.inputValues[0].value.toBigInt();
+  }
+}
+
+export class TapTreasuryCall__Outputs {
+  _call: TapTreasuryCall;
+
+  constructor(call: TapTreasuryCall) {
     this._call = call;
   }
 }

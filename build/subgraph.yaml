@@ -44,7 +44,7 @@ dataSources:
     name: NftCatAttributes
     network: sepolia
     source:
-      address: "0xe033cD29d7c9650251FE3B8060A02B9c673FB515"
+      address: "0x8F01f4Adc7D4f43EA4063Bb415cb7Be4ac02ee6f"
       abi: NftCatAttributes
       startBlock: 3615282
     mapping:
